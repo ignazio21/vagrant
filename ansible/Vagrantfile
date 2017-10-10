@@ -1,0 +1,14 @@
+# -*- mode: ruby -*-
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "centos7"
+
+  config.vm.define "ans_controller" do |ans_controller|
+      ans_controller.vm.hostname = "ans_controller"
+      ans_controller.vm.box = "centos7"
+      ans_controller.vm.network "private_network", type:"dhcp"
+      ans_controller.vm.network "forwarded_port", guest:22, host:22
+  end
+
+end

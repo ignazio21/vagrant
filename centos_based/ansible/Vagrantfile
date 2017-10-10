@@ -1,0 +1,18 @@
+# -*- mode: ruby -*-
+
+Vagrant.configure("2") do |config|
+  
+  config.ssh.forward_agent = true 
+ 
+  config.vm.define "anscontr" do |anscontr|
+	anscontr.vm.hostname = "anscontr"
+	anscontr.vm.box = "centos/7"
+	anscontr.vm.network "private_network", type:"dhcp"
+  end 
+  
+  config.vm.define "ansnode" do |ansnode|
+	ansnode.vm.hostname = "ansnode"
+	ansnode.vm.box = "centos/7"
+	ansnode.vm.network "private_network", type:"dhcp"
+  end 
+end
